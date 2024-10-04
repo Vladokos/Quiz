@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Quizzes {
+  id        Int    @id @default(autoincrement())
+  Title     String @db.VarChar(250)
+  Questions String @db.VarChar(2500)
+  Answers   String @db.VarChar(2500)
+}
+
+model Users {
+  Id               Int     @id @default(autoincrement())
+  Login            String  @db.VarChar(250)
+  Email            String  @unique(map: "UQ_Users_Email") @db.VarChar(250)
+  Password         String  @db.VarChar(2500)
+  refreshToken     String  @db.VarChar(250)
+  expires          String  @db.VarChar(250)
+  ProviderId       Int?
+  Provider         String? @db.VarChar(250)
+  CodeVerefication Int?
+}
