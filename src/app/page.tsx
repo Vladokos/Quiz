@@ -1,3 +1,11 @@
 export default function Home() {
-  return <main>Hello Next</main>;
+
+  
+    return (
+      <>
+        Signed in as  <br />
+        <button >Sign out</button>
+      </>
+    );
+  
 }
